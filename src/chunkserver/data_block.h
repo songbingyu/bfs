@@ -45,10 +45,10 @@ public:
     int64_t Size() const;
     std::string GetFilePath() const;
     BlockMeta GetMeta() const;
-    int64_t DiskUsed();
+    int64_t DiskUsed() const;
     bool SetDeleted();
     void SetVersion(int64_t version);
-    int GetVersion();
+    int GetVersion() const;
     int32_t GetLastSaq();
     /// Set expected slice num, for IsComplete.
     void SetSliceNum(int32_t num);

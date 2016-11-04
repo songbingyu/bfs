@@ -131,7 +131,7 @@ std::string Block::GetFilePath() const {
 BlockMeta Block::GetMeta() const {
     return meta_;
 }
-int64_t Block::DiskUsed() {
+int64_t Block::DiskUsed() const {
     return disk_file_size_;
 }
 bool Block::SetDeleted() {
@@ -144,7 +144,7 @@ void Block::SetVersion(int64_t version) {
 int Block::GetVersion() {
     return meta_.version();
 }
-int32_t Block::GetLastSaq() {
+int32_t Block::GetLastSaq() const {
     return last_seq_;
 }
 

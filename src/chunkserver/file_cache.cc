@@ -34,6 +34,7 @@ FileCache::FileCache(int32_t cache_size)
 
 FileCache::~FileCache() {
     delete cache_;
+	cache_ = NULL;
 }
 
 common::Cache::Handle* FileCache::FindFile(const std::string& file_path) {
