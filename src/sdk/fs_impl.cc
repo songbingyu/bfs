@@ -85,10 +85,9 @@ FSImpl::~FSImpl() {
     delete thread_pool_;
 }
 bool FSImpl::ConnectNameServer(const char* nameserver) {
-    std::string nameserver_nodes = FLAGS_nameserver_nodes;
-    if (nameserver != NULL) {
-        nameserver_nodes = std::string(nameserver);
-    }
+
+	std::string nameserver_nodes = nameserver == NULL ?
+			FLAGS_nameserver_nodes : std::string(nameserver);
     rpc_client_ = new RpcClient();
     nameserver_client_ = new NameServerClient(rpc_client_, nameserver_nodes);
     return true;
@@ -492,6 +491,7 @@ bool FS::OpenFileSystem(const char* nameserver, FS** fs, const FSOptions&) {
     FSImpl* impl = new FSImpl;
     if (!impl->ConnectNameServer(nameserver)) {
         *fs = NULL;
+		delete impl;
         return false;
     }
     *fs = impl;
