@@ -130,6 +130,7 @@ void NameSpace::SetupRoot() {
     root_path_.set_type(01755);
     root_path_.set_ctime(static_cast<uint32_t>(version_/1000000));
 }
+
 /// New SplitPath
 /// /home/dirx/filex
 ///       diry/filey
