@@ -37,7 +37,7 @@ MasterSlaveImpl::MasterSlaveImpl() : exiting_(false), master_only_(false),
     master_addr_ = FLAGS_master_slave_role == "master" ? this_server: another_server;
     slave_addr_ = FLAGS_master_slave_role == "slave" ? this_server: another_server;
     is_leader_ = FLAGS_master_slave_role == "master";
-    if (IsLeader()) {
+	if (is_leader_) {
         LOG(INFO, "\033[32m[Sync]\033[0m I am Leader");
     } else {
         LOG(INFO, "\033[32m[Sync]\033[0m I am Slave");
