@@ -493,6 +493,8 @@ void LogDB::CloseCurrent() {
     }
 }
 
+// |  len  |         data       |
+// |-------|--------------------|
 int LogDB::ReadOne(FILE* fp, std::string* data) {
     int len;
     int ret = fread(&len, 1, 4, fp);
